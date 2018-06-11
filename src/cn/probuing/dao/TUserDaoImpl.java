@@ -53,12 +53,31 @@ public class TUserDaoImpl implements TUserDao {
     @Override
     public int getTotalCount() {
         String sql = "select count(*) from t_user";
-//        jt.q
-        return 0;
+        Integer count = jt.queryForObject(sql, Integer.class);
+        return count;
     }
 
     @Override
     public List<TUser> getAllTUser() {
-        return null;
+        String sql = "select * from t_user";
+        List<TUser> query = jt.query(sql, new RowMapper<TUser>() {
+            @Override
+            public TUser mapRow(ResultSet resultSet, int i) throws SQLException {
+                TUser tUser = new TUser();
+
+                tUser.setId(resultSet.getInt("id"));
+                tUser.setName(resultSet.getString("name"));
+                return tUser;
+            }
+        });
+        return query;
+    }
+
+    public JdbcTemplate getJt() {
+        return jt;
+    }
+
+    public void setJt(JdbcTemplate jt) {
+        this.jt = jt;
     }
 }
