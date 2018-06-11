@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--set方式注入-->
+   <!-- <bean name="user" class="cn.probuing.bean.User">
+        &lt;!&ndash;
+        为user对象中 名为name的属性 注入tom作为值
+        &ndash;&gt;
+        <property name="name" value="tom"/>
+        &lt;!&ndash;
+        为user对象中，名为age的属性 注入值18
+        &ndash;&gt;
+        <property name="age" value="18"/>
+        &lt;!&ndash;
+        为user对象注入对象属性
+        ref:引用配置的对象
+        &ndash;&gt;
+        <property name="car" ref="car"/>
+    </bean>
+
+    &lt;!&ndash;配置对象到容器&ndash;&gt;
+    <bean name="car" class="cn.probuing.bean.Car">
+        <property name="name" value="benz"></property>
+        <property name="color" value="red"></property>
+    </bean>
+    &lt;!&ndash;========================================&ndash;&gt;
+    &lt;!&ndash;构造函数注入&ndash;&gt;
+    <bean name="user2" class="cn.probuing.bean.User">
+        &lt;!&ndash;构造函数参数，这里的构造函数是
+         User(String name, Car car)
+         所以在使用constructor-arg标签中指定参数的值
+         index:指定属性对应的索引位置
+         type:指定类型的构造函数注入
+        &ndash;&gt;
+        <constructor-arg name="name" value="1" index="0" type="java.lang.Integer"></constructor-arg>
+        &lt;!&ndash;指定引用上面配置的对象&ndash;&gt;
+        <constructor-arg name="car" ref="car" index="1"></constructor-arg>
+
+
+    </bean>
+    &lt;!&ndash;=========================================&ndash;&gt;
+    &lt;!&ndash;p名称空间注入&ndash;&gt;
+    <bean name="user3" class="cn.probuing.bean.User"
+          p:name="jack" p:age="20" p:car-ref="car"
+    ></bean>
+    &lt;!&ndash;spel注入 spring Expressin Language spring表达式语言&ndash;&gt;
+    <bean name="user4" class="cn.probuing.bean.User">
+        &lt;!&ndash;
+        #{}:代表spel表达式的书写位置 user3.name代表找到name为user3的对象name作为user4的name的值
+
+        &ndash;&gt;
+        <property name="name" value="#{user3.name}"></property>
+        <property name="age" value="#{user2.age}"></property>
+        &lt;!&ndash;
+        引用类型不支持spel
+        &ndash;&gt;
+        <property name="car" ref="car"></property>
+    </bean>
+
+    &lt;!&ndash;===========================================&ndash;&gt;
+    &lt;!&ndash;
+        复杂类型注入
+    &ndash;&gt;
+    &lt;!&ndash;array注入&ndash;&gt;
+    <bean name="cb" class="cn.probuing.injection.CollectionBean">
+        &lt;!&ndash;
+        如果数组中只准备注入一个值，可以使用value 或者ref
+        &ndash;&gt;
+        <property name="arr">
+            &lt;!&ndash;为数组注入值&ndash;&gt;
+            <array>
+                <value>hello</value>
+                <value>how</value>
+                <value>are</value>
+                <value>you</value>
+                &lt;!&ndash;数组中的引用元素&ndash;&gt;
+                <ref bean="car"></ref>
+
+            </array>
+        </property>
+        &lt;!&ndash;
+        list注入
+        &ndash;&gt;
+        <property name="list">
+            <list>
+                <value>i</value>
+                <value>am</value>
+                <value>list</value>
+                <ref bean="user2"/>
+            </list>
+        </property>
+        &lt;!&ndash;map注入&ndash;&gt;
+        <property name="map">
+            <map>
+                <entry key="a" value="avalue"/>
+                <entry key="driverName" value="Mysql"/>
+                <entry key="car" value-ref="car"/>
+            </map>
+        </property>
+        &lt;!&ndash;配置文件注入&ndash;&gt;
+        <property name="properties">
+            <props>
+                <prop key="driveClass">com.apple.applescript.apple.applescript</prop>
+                <prop key="userName">root</prop>
+                <prop key="password">1234</prop>
+            </props>
+        </property>
+    </bean>-->
+
+
+
+    <!--开启注解
+    指定扫描 base-package下的所有注解
+    -->
+    <context:component-scan base-package="cn.probuing.bean"></context:component-scan>
+
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置目标对象-->
+    <bean name="userService" class="cn.probuing.proxy.UserServiceImpl"/>
+    <!--配置通知对象-->
+    <bean name="myAdvice" class="cn.probuing.advice.MyAdvice"/>
+    <!--&lt;!&ndash;配置将通知置入目标对象&ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;配置切入点&ndash;&gt;-->
+        <!--<aop:pointcut id="pc" expression="execution(* cn.probuing.proxy..*ServiceImpl.*(..))"/>-->
+        <!--&lt;!&ndash;描述通知&ndash;&gt;-->
+        <!--<aop:aspect ref="myAdvice">-->
+            <!--&lt;!&ndash;前置通知&ndash;&gt;-->
+            <!--<aop:before method="before" pointcut-ref="pc"/>-->
+            <!--&lt;!&ndash;后置通知&ndash;&gt;-->
+            <!--<aop:after method="afer" pointcut-ref="pc"/>-->
+            <!--&lt;!&ndash;后置通知 异常不关闭&ndash;&gt;-->
+            <!--<aop:after-returning method="afterReturning" pointcut-ref="pc"/>-->
+            <!--&lt;!&ndash;异常拦截通知&ndash;&gt;-->
+            <!--<aop:after-throwing method="afterException" pointcut-ref="pc"/>-->
+            <!--&lt;!&ndash;环绕通知&ndash;&gt;-->
+            <!--<aop:around method="around" pointcut-ref="pc"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+</beans>
