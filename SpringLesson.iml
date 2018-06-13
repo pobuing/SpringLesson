@@ -19,6 +19,7 @@
           <file>file://$MODULE_DIR$/src/cn/probuing/injection/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/cn/probuing/aop/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/cn/probuing/annotationaop/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/cn/probuing/dao/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
